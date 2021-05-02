@@ -102,3 +102,45 @@ int main()
     }
     return 0;
 }
+
+bool searchDiagonal(char* kata) {
+    for (int i = 0; i < rows; i++) {
+      for (int j = 0; j < cols; j++) {
+        char tempkata[strlen(kata)];
+        for (int k = 0; k < strlen(kata); k++) {
+            int xx = i + k;
+            int yy = j + k;
+            if (xx > rows - 1)
+              xx %= rows - 1;
+            if (yy > cols - 2)
+              yy %= cols - 1;
+            tempkata[k] = words[xx][yy];
+        }
+        char *ketemu = strstr(tempkata, kata);
+        if (ketemu)
+          return 1;
+      } // j
+    } // i
+    return 0;
+}
+
+bool searchDiagonalR(char* kata) {
+    for (int i = 0; i < rows; i++) {
+      for (int j = 0; j < cols; j++) {
+        char tempkata[strlen(kata)];
+        for (int k = 0; k < strlen(kata); k++) {
+            int xx = i + k;
+            unsigned int yy = j - k;  // always positive
+            if (xx > rows - 1)
+              xx %= rows - 1;
+            if (yy > cols - 2)
+              yy %= cols - 1 - k;
+            tempkata[k] = words[xx][yy];
+        }
+        char *ketemu = strstr(tempkata, kata);
+        if (ketemu)
+          return 1;
+      } // j
+    } // i
+    return 0;
+}
