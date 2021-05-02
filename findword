@@ -88,20 +88,6 @@ for(int i=0; i < strlen(kata)/2;i++){
 return kata;
 }
 
-int main()
-{
-    char word[16];
-    int n;
-    cin>>n;
-    for (int i=0;i<n;i++){
-        cin.getline(word,16,'\n');
-        if (searchVertical(word) || searchHorizontal(word))
-            cout << "Ada\n";
-        else 
-            cout << "Tidak Ada\n";
-    }
-    return 0;
-}
 
 bool searchDiagonal(char* kata) {
     for (int i = 0; i < rows; i++) {
