@@ -20,16 +20,34 @@ const int cols = 16, rows = 15;
                                 "pdcrzmsngrdnrpz",
                                 "ohnkzwaterjgtra"};
 
-char *getWordVertical(int a){
-	
-	
-	
-	
-}
+//char *getWordVertical(int a)
 char *reverse(char *);
 bool searchVertical(char *);
 bool searchHorizontal(char *);
+bool searchDiagonal(char *);
+bool searchDiagonalR(char *);
 
+bool searchVertical(char* kata){
+for(int i=0;i < rows; i++){
+	char vertword[cols];
+	for (int j=0;j < cols; j++){
+		vertword[j]=words[j][i];
+		}
+	char *ketemu = strstr(vertword, kata);
+	if (ketemu)
+	return 1;
+}
+return 0;
+}
+
+char *reverse(char* kata){
+for(int i=0; i < strlen(kata)/2;i++){
+	char temp = kata[i];
+	kata[i] = kata[strlen(kata) - i - 1];
+	kata[strlen(kata) - i - 1] = temp;
+	}
+return kata;
+}
 
 int main()
 {
