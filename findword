@@ -33,7 +33,7 @@ bool searchHorizontal(char *);
 
 int main()
 {
-    char word[16];
+    char word[18];
     int n;
     cin>>n;
     for (int i=0;i<n;i++){
