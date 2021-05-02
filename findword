@@ -33,6 +33,45 @@ for(int i=0;i < rows; i++){
 	for (int j=0;j < cols; j++){
 		vertword[j]=words[j][i];
 		}
+
+int main() {
+  char n_input[10];
+  int n;
+  cin.getline(n_input, 10, '\n');
+  n = atoi(n_input);              // cin.getline, clean, bufferoverflow'nt
+  char getword[n][16];
+
+
+  // input
+  for (int i = 0; i < n; i++) {
+    char word[16];
+    fflush(stdin);
+    cin.getline(word, 16, '\n');
+    strcpy(getword[i], word);
+  }
+
+  // search
+  cout << endl; // separator
+  for (int i = 0; i < n; i++) {
+    if (searchVertical(getword[i]) || searchVertical(reverse(getword[i])) ||
+        searchHorizontal(getword[i]) || searchHorizontal(reverse(getword[i])) ||
+        searchDiagonal(getword[i]) || searchDiagonal(reverse(getword[i])) ||
+        searchDiagonalR(getword[i]) || searchDiagonalR(reverse(getword[i])))
+      cout << "Ada\n";
+    else
+      cout << "Tidak Ada\n";
+  }
+  return 0;
+}
+
+bool searchHorizontal(char* kata) {
+    for (int i = 0; i < rows; i++) {
+      char *ketemu = strstr(words[i], kata);
+      if (ketemu)
+        return 1;
+    }
+    return 0;
+}
 	char *ketemu = strstr(vertword, kata);
 	if (ketemu)
 	return 1;
