@@ -11,7 +11,7 @@ int main()
     cout<<"\t***********************************************Word Gussing Game*********************************************************\n\n"<<endl;
     
 	 char n;
-     char Name[];
+     string Name;
      cout<<"Enter name  :       ";
      getline(cin,Name);
      cout<<endl;
